@@ -1,0 +1,26 @@
+# DevOps vs Secure DevOps
+
+devops <- c(3, 4, 2, 5, 3)
+secure_devops <- c(7, 8, 6, 9, 8)
+
+# Calculate statistics
+cat("Traditional DevOps\n")
+cat("Total:", sum(devops), "\n")
+cat("Mean:", mean(devops), "\n")
+cat("Maximum:", max(devops), "\n")
+cat("Minimum:", min(devops), "\n\n")
+
+cat("Secure DevOps\n")
+cat("Total:", sum(secure_devops), "\n")
+cat("Mean:", mean(secure_devops), "\n")
+cat("Maximum:", max(secure_devops), "\n")
+cat("Minimum:", min(secure_devops), "\n")
+
+# Bar chart
+activities <- c(sum(devops), sum(secure_devops))
+names(activities) <- c("Traditional DevOps", "Secure DevOps")
+
+barplot(activities,
+        main = "DevOps vs Secure DevOps",
+        xlab = "Pipeline",
+        ylab = "Total Security Activities")
