@@ -1,0 +1,28 @@
+# Security Log Analysis
+
+logs <- data.frame(
+  Timestamp = c("10:00", "10:05", "10:10", "10:15",
+                "10:20", "10:25"),
+  User_ID = c("U01", "U02", "U01", "U03", "U02", "U04"),
+  IP_Address = c("192.168.1.10", "192.168.1.11",
+                 "192.168.1.10", "192.168.1.12",
+                 "192.168.1.11", "192.168.1.13"),
+  Event_Type = c("Login", "Login", "File Access",
+                 "Login", "Password Change", "Login"),
+  Status = c("Success", "Failed", "Success",
+             "Failed", "Success", "Failed"),
+  Severity = c("Low", "High", "Medium", "Critical",
+               "Low", "High")
+)
+
+# Successful and failed activities
+status_count <- table(logs$Status)
+
+cat("Successful and Failed Activities:\n")
+print(status_count)
+
+# Security events based on severity
+severity_count <- table(logs$Severity)
+
+cat("\nSecurity Events by Severity:\n")
+print(severity_count)
