@@ -1,0 +1,24 @@
+# Secure by Design Analysis
+
+projects <- data.frame(
+  Project = c("P1", "P2", "P3", "P4", "P5", "P6"),
+  Stage = c("Design", "Development", "Design",
+            "Testing", "Development", "Design"),
+  Security_Check = c("Yes", "Yes", "No", "Yes", "Yes", "Yes"),
+  Vulnerabilities_Detected = c(5, 8, 10, 6, 7, 4),
+  Vulnerabilities_Fixed = c(5, 7, 6, 6, 6, 4)
+)
+
+# Select Design and Development stages
+selected <- projects[
+  projects$Stage %in% c("Design", "Development"), ]
+
+# Calculate percentage
+total_projects <- nrow(selected)
+security_projects <- sum(selected$Security_Check == "Yes")
+
+percentage <- (security_projects / total_projects) * 100
+
+cat("Total Design and Development Projects:", total_projects, "\n")
+cat("Projects with Security Checks:", security_projects, "\n")
+cat("Percentage with Security Checks:", percentage, "%\n")
