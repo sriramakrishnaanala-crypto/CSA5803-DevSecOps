@@ -1,0 +1,27 @@
+# Shift-Left vs Traditional Security
+
+# Create dataset
+security_data <- data.frame(
+  Phase = c("Design", "Coding", "Testing", "Deployment", "Production"),
+  Vulnerabilities = c(5, 15, 25, 10, 5)
+)
+
+# Calculate total vulnerabilities
+total <- sum(security_data$Vulnerabilities)
+
+# Calculate percentage
+security_data$Percentage <-
+  (security_data$Vulnerabilities / total) * 100
+
+# Display results
+print(security_data)
+
+# Bar chart
+barplot(
+  security_data$Vulnerabilities,
+  names.arg = security_data$Phase,
+  col = "skyblue",
+  main = "Vulnerabilities Detected by Development Phase",
+  xlab = "Development Phase",
+  ylab = "Number of Vulnerabilities"
+)
