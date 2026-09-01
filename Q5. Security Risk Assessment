@@ -1,0 +1,32 @@
+# Security Risk Assessment
+
+# Create dataset
+risk_data <- data.frame(
+  Risk = c("Data Breach", "Malware Attack", "System Failure",
+           "Unauthorized Access", "Software Bug", "Phishing Attack"),
+  Probability = c(4, 3, 2, 4, 2, 5),
+  Impact = c(5, 5, 4, 4, 3, 4)
+)
+
+# Calculate Risk Score
+risk_data$Risk_Score <- risk_data$Probability * risk_data$Impact
+
+# Classify risks
+risk_data$Risk_Level <- ifelse(
+  risk_data$Risk_Score <= 4, "Low",
+  ifelse(risk_data$Risk_Score <= 12, "Medium", "High")
+)
+
+# Display results
+print(risk_data)
+
+# Display graphically
+barplot(
+  risk_data$Risk_Score,
+  names.arg = risk_data$Risk,
+  las = 2,
+  col = "skyblue",
+  main = "Software Security Risk Assessment",
+  xlab = "Software Risks",
+  ylab = "Risk Score"
+)
